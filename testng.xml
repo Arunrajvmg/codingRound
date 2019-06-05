@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="3">
+  <test name="codingRound-master">
+    <classes>
+      <class name="TestcasePackage.HotelBookingTest"/>
+      <class name="TestcasePackage.FlightBookingTest"/>
+      <class name="TestcasePackage.SignInTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
