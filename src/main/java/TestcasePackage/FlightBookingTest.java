@@ -22,6 +22,8 @@ public class FlightBookingTest extends CommonFunctions {
 	        driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")).click();
 	        driver.findElement(By.id("SearchBtn")).click();
 	        Assert.assertTrue(isElementPresent(driver,By.className("searchSummary")));
+	        //driver.findElement(By.className("searchSummary")).click();
+	        Screenshot();
 	        driver.quit();
     	}
    	 	catch (Exception e) {

@@ -16,6 +16,7 @@ public class SignInTest extends CommonFunctions {
 	        driver.findElement(By.id("signInButton")).click();        
 	        String errors1 = driver.findElement(By.id("errors1")).getText();
 	        Assert.assertTrue(errors1.contains("There were errors in your submission"));
+	        Screenshot();
 	        driver.quit(); }
     	 catch (Exception e) {
     		 Assert.assertTrue(false);
