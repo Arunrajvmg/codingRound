@@ -1,0 +1,16 @@
+The following modifications were made to the Test suite
+1.	Chrome driver file was updated
+2.	Driver initialization should be after assigning WebDriver path
+3.	To increase code reusability all the common methods are added under newly created class CommonFunctions
+4.	Thread.sleep was replaced by implicit wait
+5.	driverInitialization, Setpath and isElementPresent methods are made as common methods
+6.	Multiple unused imports were removed
+7.	Added “PageFactory.initElements(driver, this);” to create objects using POM factory(Which was missing earlier)
+8.	Assertions were added to avoid false positive results at end of each tests
+9.	Modified Locators to identify objects
+10.	Transferred control from driver to frame available in webpage to identify objects
+11.	Converted project in to TestNG project by adding testing.xml
+12.	Modified default testng.xml file to meet current project requirement
+13.	Exception handling was added with try catch blocks
+14.	Driver Object declared in each tests are replaced by using inheritance concept
+15.	Exception to handle language selection was added
