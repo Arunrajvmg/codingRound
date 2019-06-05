@@ -1,20 +1,16 @@
 package TestcasePackage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import CommonFunctions.Package.CommonFunctions;
 
-public class FlightBookingTest {
-    private WebDriver driver ;
+public class FlightBookingTest extends CommonFunctions {
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
     	try {
-	    	CommonFunctions CommonFunctionsObj = new CommonFunctions();
-	    	driver = CommonFunctionsObj.driver;
 	        driver.get("https://www.cleartrip.com/");
 	        // This exception is used to handle in regions where there are multiple languages
-	        if (CommonFunctionsObj.isElementPresent(driver, By.id("english_site_pref")) == true) {
+	        if (isElementPresent(driver, By.id("english_site_pref")) == true) {
 	        driver.findElement(By.id("english_site_pref")).click();        }
 	        driver.findElement(By.id("OneWay")).click();
 	        driver.findElement(By.id("FromTag")).clear();
@@ -25,7 +21,7 @@ public class FlightBookingTest {
 	        driver.findElement(By.xpath("//*[@id='ui-id-2']/li[1]")).click();
 	        driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")).click();
 	        driver.findElement(By.id("SearchBtn")).click();
-	        Assert.assertTrue(CommonFunctionsObj.isElementPresent(driver,By.className("searchSummary")));
+	        Assert.assertTrue(isElementPresent(driver,By.className("searchSummary")));
 	        driver.quit();
     	}
    	 	catch (Exception e) {

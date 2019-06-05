@@ -1,17 +1,13 @@
 package TestcasePackage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import CommonFunctions.Package.CommonFunctions;
 
-public class SignInTest {
-    private WebDriver driver;
+public class SignInTest extends CommonFunctions {
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
     	try {
-	    	CommonFunctions CommonFunctionsObj = new CommonFunctions();
-	    	driver = CommonFunctionsObj.driver;
 	        driver.get("https://www.cleartrip.com/");
 	        driver.findElement(By.id("english_site_pref")).click();
 	        driver.findElement(By.linkText("Your trips")).click();

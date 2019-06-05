@@ -27,7 +27,7 @@ public class CommonFunctions {
 	}
 	
 	
-    public void setDriverPath() {
+    private void setDriverPath() {
     	// Identifying the OS in which scripts are executed to assign suitable driver
         if (PlatformUtil.isMac()) {
         	System.out.println("Mac");

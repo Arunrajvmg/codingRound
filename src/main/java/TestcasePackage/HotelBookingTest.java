@@ -1,7 +1,6 @@
 package TestcasePackage;
 import CommonFunctions.Package.CommonFunctions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -9,9 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
 
-public class HotelBookingTest {
-    private WebDriver driver;
-  
+public class HotelBookingTest extends CommonFunctions {
+ 
     @FindBy(xpath = "//*[@id='Home']/div/aside[1]/nav/ul[1]/li[2]/a[1]")
     private WebElement hotelLink;
 
@@ -36,12 +34,10 @@ public class HotelBookingTest {
     @Test
     public void shouldBeAbleToSearchForHotels() {
     	try {
-	    	CommonFunctions CommonFunctionsObj = new CommonFunctions();
-	    	driver = CommonFunctionsObj.driver;
 	        driver.get("https://www.cleartrip.com/");
 	        PageFactory.initElements(driver, this);
 	        // This exception is used to handle in regions where there are multiple languages
-	        if (CommonFunctionsObj.isElementPresent(driver, By.id("english_site_pref")) == true) {
+	        if (isElementPresent(driver, By.id("english_site_pref")) == true) {
 	        	EnglishLanguage.click();        }
 	        hotelLink.click();
 	        localityTextBox.sendKeys("Indiranagar, Bangalore");
@@ -49,7 +45,7 @@ public class HotelBookingTest {
 	        DateLabel.click();
 	        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
 	        searchButton.click();
-	        Assert.assertTrue(CommonFunctionsObj.isElementPresent(driver,By.linkText("Check availability")));
+	        Assert.assertTrue(isElementPresent(driver,By.linkText("Check availability")));
 	        driver.quit(); }
 		 catch (Exception e) {
 			 Assert.assertTrue(false);
