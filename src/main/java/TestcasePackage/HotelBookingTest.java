@@ -35,20 +35,25 @@ public class HotelBookingTest {
     
     @Test
     public void shouldBeAbleToSearchForHotels() {
-    	CommonFunctions CommonFunctionsObj = new CommonFunctions();
-    	driver = CommonFunctionsObj.driver;
-        driver.get("https://www.cleartrip.com/");
-        PageFactory.initElements(driver, this);
-        // This exception is used to handle in regions where there are multiple languages
-        if (CommonFunctionsObj.isElementPresent(driver, By.id("english_site_pref")) == true) {
-        	EnglishLanguage.click();        }
-        hotelLink.click();
-        localityTextBox.sendKeys("Indiranagar, Bangalore");
-        FromLocation.click();
-        DateLabel.click();
-        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
-        searchButton.click();
-        Assert.assertTrue(CommonFunctionsObj.isElementPresent(driver,By.linkText("Check availability")));
-        driver.quit();
+    	try {
+	    	CommonFunctions CommonFunctionsObj = new CommonFunctions();
+	    	driver = CommonFunctionsObj.driver;
+	        driver.get("https://www.cleartrip.com/");
+	        PageFactory.initElements(driver, this);
+	        // This exception is used to handle in regions where there are multiple languages
+	        if (CommonFunctionsObj.isElementPresent(driver, By.id("english_site_pref")) == true) {
+	        	EnglishLanguage.click();        }
+	        hotelLink.click();
+	        localityTextBox.sendKeys("Indiranagar, Bangalore");
+	        FromLocation.click();
+	        DateLabel.click();
+	        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
+	        searchButton.click();
+	        Assert.assertTrue(CommonFunctionsObj.isElementPresent(driver,By.linkText("Check availability")));
+	        driver.quit(); }
+		 catch (Exception e) {
+			 Assert.assertTrue(false);
+			 driver.quit();
+		 }
     }
 }
